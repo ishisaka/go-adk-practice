@@ -21,7 +21,7 @@ func main() {
 	ctx := context.Background()
 
 	// モデルのインスタンスを作る
-	model, err := gemini.NewModel(ctx, "gemini-2.5-flash", &genai.ClientConfig{
+	model, err := gemini.NewModel(ctx, "gemini-3-flash-preview", &genai.ClientConfig{
 		APIKey: os.Getenv("GOOGLE_API_KEY"),
 	})
 	if err != nil {
@@ -30,9 +30,13 @@ func main() {
 
 	// エージェントのインスタンスを作る
 	timeAgent, err := llmagent.New(llmagent.Config{
-		Name:        "hello_time_agent",
-		Model:       model,
+		// エージェントの名前を設定する
+		Name: "hello_time_agent",
+		// エージェントが使用するモデルを設定する
+		Model: model,
+		// エージェントの説明を設定する
 		Description: "Tells the current time in a specified city.",
+		// エージェントへの指示を設定する
 		Instruction: "You are a helpful assistant that tells the current time in a city.",
 		// ツールを追加する(Web検索ツールを追加)
 		Tools: []tool.Tool{

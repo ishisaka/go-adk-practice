@@ -34,6 +34,7 @@ func main() {
 		Model:       model,
 		Description: "Tells the current time in a specified city.",
 		Instruction: "You are a helpful assistant that tells the current time in a city.",
+		// ツールを追加する(Web検索ツールを追加)
 		Tools: []tool.Tool{
 			geminitool.GoogleSearch{},
 		},

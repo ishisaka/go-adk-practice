@@ -1,5 +1,8 @@
 [env]
 _.file = [".env"]
 
-[tasks.run]
-run = ["cd cmd/quickstart && go run main.go", "cd ../.."]
+[tasks.cli]
+run = ["go run cmd/quickstart/main.go"]
+
+[tasks.web]
+run = ["go run ./cmd/quickstart/main.go web api webui"]

@@ -1,4 +1,5 @@
 // ADK サンプル
+// https://google.github.io/adk-docs/get-started/go/#set-your-api-key
 package main
 
 import (
